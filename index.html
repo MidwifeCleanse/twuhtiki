@@ -8,6 +8,9 @@
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #fff9fa; color: #333; }
         header { background-color: #d63384; color: white; text-align: center; padding: 20px 10px; }
         h1 { margin: 0; font-size: 24px; }
+        .header-contacts { display: flex; justify-content: center; gap: 15px; margin-top: 12px; flex-wrap: wrap; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 6px; background-color: rgba(255,255,255,0.2); color: white; padding: 8px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; transition: background-color 0.2s; border: none; cursor: pointer; }
+        .contact-btn:hover { background-color: rgba(255,255,255,0.3); }
         .container { max-width: 1000px; margin: 0 auto; padding: 15px; box-sizing: border-box; }
         
         /* Выбор города */
@@ -47,6 +50,8 @@
             .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .product-card { max-width: 100%; }
             .product-card img { height: 160px; }
+            .header-contacts { gap: 8px; }
+            .contact-btn { font-size: 12px; padding: 6px 10px; }
         }
     </style>
 </head>
@@ -54,6 +59,14 @@
 
     <header>
         <h1>🌸 Цветочная мастерская</h1>
+        <div class="header-contacts">
+            <a href="https://wa.me/79280126881" class="contact-btn" target="_blank">
+                💬 WhatsApp: +7 928 012-68-81
+            </a>
+            <a href="tel:+79280126881" class="contact-btn">
+                ☎️ Позвонить: +7 928 012-68-81
+            </a>
+        </div>
     </header>
 
     <div class="container">
@@ -73,41 +86,41 @@
 
         <div class="extra-services-section">
             <h2>🎁 Добавить к букету</h2>
-            <div class="extra-main-note">Дополнительные услуги согласовываются с флористом при заказе</div>
+            <div class="extra-main-note">Уточнить цену у администратора при оформлении</div>
             
             <label class="extra-option">
                 <input type="checkbox" id="extra-candy">
-                <span>🍬 Коробка вкусных конфет (150 г) — +200 руб.</span>
+                <span>🍬 Коробка вкусных конфет — уточнить у ми</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-strawberries">
-                <span>🍓 Клубника в шоколаде (200 г) — +250 руб.</span>
+                <span>🍓 Клубника в шоколаде — уточнить у ми</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-toy">
-                <span>🧸 Мягкая игрушка (20 см) — +180 руб.</span>
+                <span>🧸 Мягкая игрушка — уточнить у ми</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-card">
-                <span>💌 Открытка с пожеланием — +50 руб.</span>
+                <span>💌 Открытка с пожеланием — уточнить у ми</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-balloons">
-                <span>🎈 Гелевые шарики с надписью (3 шт.) — +150 руб.</span>
+                <span>🎈 Гелевые шарики с надписью — уточнить у ми</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option" style="margin-top: 8px;">
                 <input type="checkbox" id="extra-combo">
-                <span>🧺 VIP-набор: Букет + Конфеты + Шарики — +350 руб.</span>
+                <span>🧺 VIP-набор: Букет + Конфеты + Подарок — уточнить у ми</span>
             </label>
         </div>
 
@@ -175,17 +188,17 @@
             "Солнечный букет из подсолнухов и зелени. Символ тепла, оптимизма и благодарности.",
             "Утончённая композиция с премиум-розами и эвкалиптом. Для особых людей и важных моментов.",
             "Весенний букет из нежных гвоздик и гипсофилы. Универсален для любого праздника.",
-            "Экзотический букет из орхидей и зелени. С��ильный и неповторимый подарок.",
+            "Экзотический букет из орхидей и зелени. Сильный и неповторимый подарок.",
             "Романтичный букет с красными розами и ягодами. Выражает глубину чувств и страсть.",
             "Нежный букет с персиковыми розами и белыми цветами. Символизирует нежность и заботу.",
             "Яркий букет из астр и герберы. Радостный и энергичный подарок для близких людей."
         ];
 
-        // Генерируем каталог с оптимальными ценами
+        // Генерируем каталог с ценой от 3500
         const products = [];
         const baseUrl = "https://raw.githubusercontent.com/6nwbbbwhpz-lgtm/----/main/";
         
-        const priceOptions = [650, 750, 850, 950, 1050, 1150, 1250, 1300, 700, 800, 900, 1000, 1100, 1200];
+        const priceOptions = [3500, 3800, 4200, 4500, 4800, 5200, 5500, 5800, 3700, 4000, 4300, 4600, 4900, 5100];
         
         for (let i = 1; i <= 40; i++) {
             let defaultPrice = priceOptions[i % priceOptions.length];
@@ -277,19 +290,16 @@
 
             let hasExtras = false;
             let extrasText = '\n🎁 *Дополнительно к заказу:*\n';
-            let extrasTotal = 0;
             
-            if (candySelected) { extrasText += '• Коробка конфет (150 г) 🍬 — +200 руб.\n'; hasExtras = true; extrasTotal += 200; }
-            if (strawberriesSelected) { extrasText += '• Клубника в шоколаде (200 г) 🍓 — +250 руб.\n'; hasExtras = true; extrasTotal += 250; }
-            if (toySelected) { extrasText += '• Мягкая игрушка (20 см) 🧸 — +180 руб.\n'; hasExtras = true; extrasTotal += 180; }
-            if (cardSelected) { extrasText += '• Открытка с пожеланием 💌 — +50 руб.\n'; hasExtras = true; extrasTotal += 50; }
-            if (balloonsSelected) { extrasText += '• Гелевые шарики с надписью (3 шт.) 🎈 — +150 руб.\n'; hasExtras = true; extrasTotal += 150; }
-            if (comboSelected) { extrasText += '• VIP-набор: Букет + Конфеты + Шарики 🧺 — +350 руб.\n'; hasExtras = true; extrasTotal += 350; }
+            if (candySelected) { extrasText += '• Коробка конфет 🍬 — уточнить цену\n'; hasExtras = true; }
+            if (strawberriesSelected) { extrasText += '• Клубника в шоколаде 🍓 — уточнить цену\n'; hasExtras = true; }
+            if (toySelected) { extrasText += '• Мягкая игрушка 🧸 — уточнить цену\n'; hasExtras = true; }
+            if (cardSelected) { extrasText += '• Открытка с пожеланием 💌 — уточнить цену\n'; hasExtras = true; }
+            if (balloonsSelected) { extrasText += '• Гелевые шарики с надписью 🎈 — уточнить цену\n'; hasExtras = true; }
+            if (comboSelected) { extrasText += '• VIP-набор: Букет + Конфеты + Подарок 🧺 — уточнить цену\n'; hasExtras = true; }
 
             if (hasExtras) {
                 message += extrasText;
-                total += extrasTotal;
-                message += `*Итого с дополнениями: ${total} руб.*\n`;
             }
 
             message += '\n💳 Ожидаю подтверждения и деталей доставки.';
