@@ -8,19 +8,23 @@
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #fff9fa; color: #333; }
         header { background-color: #d63384; color: white; text-align: center; padding: 20px 10px; }
         h1 { margin: 0; font-size: 24px; }
-        .container { max-width: 800px; margin: 0 auto; padding: 15px; box-sizing: border-box; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; box-sizing: border-box; }
         
         /* Выбор города */
-        .city-box { background: white; border: 1px solid #ffccd5; border-radius: 12px; padding: 12px 15px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px[...]
-        .city-box select { padding: 6px 12px; border: 1px solid #d63384; border-radius: 8px; color: #333; outline: none; font-size: 14px; background-color: #fff9fa; cursor: pointer; font-weight: b[...]
+        .city-box { background: white; border: 1px solid #ffccd5; border-radius: 12px; padding: 12px 15px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
+        .city-box label { font-weight: bold; color: #d63384; }
+        .city-box select { padding: 6px 12px; border: 1px solid #d63384; border-radius: 8px; color: #333; outline: none; font-size: 14px; background-color: #fff9fa; cursor: pointer; font-weight: bold; }
 
-        /* Галерея товаров */
-        .gallery { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-        .product-card { background: white; border: 1px solid #ffccd5; border-radius: 12px; width: 46%; max-width: 220px; padding: 8px; display: flex; flex-direction: column; align-items: center; b[...]
-        .product-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; background-color: #fff0f2; }
-        .product-title { font-size: 13px; font-weight: bold; margin: 6px 0 4px 0; text-align: center; }
-        .product-price { color: #d63384; font-weight: bold; margin-bottom: 6px; font-size: 13px; }
-        .add-to-cart-btn { background-color: #d63384; color: white; border: none; padding: 6px 10px; border-radius: 20px; font-size: 11px; cursor: pointer; width: 100%; font-weight: bold; }
+        /* Галерея товаров - ДВА РЯДА */
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; justify-items: center; max-width: 600px; margin: 0 auto 25px; }
+        .product-card { background: white; border: 1px solid #ffccd5; border-radius: 12px; width: 100%; max-width: 280px; padding: 10px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.12); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background-color: #fff0f2; }
+        .product-title { font-size: 14px; font-weight: bold; margin: 8px 0 4px 0; text-align: center; color: #333; }
+        .product-description { font-size: 12px; color: #666; margin: 4px 0 8px 0; text-align: center; line-height: 1.4; min-height: 36px; }
+        .product-price { color: #d63384; font-weight: bold; margin-bottom: 8px; font-size: 16px; }
+        .add-to-cart-btn { background-color: #d63384; color: white; border: none; padding: 8px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; width: 100%; font-weight: bold; transition: background-color 0.2s; }
+        .add-to-cart-btn:hover { background-color: #a82860; }
         
         /* Дополнительные услуги */
         .extra-services-section { background: white; border: 1px solid #ffccd5; border-radius: 12px; padding: 15px; margin: 25px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
@@ -33,9 +37,17 @@
         .cart-section { background: white; border: 2px solid #25D366; border-radius: 12px; padding: 15px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .cart-section h2 { margin-top: 0; color: #25D366; font-size: 18px; display: flex; align-items: center; gap: 8px; }
         .cart-items { margin-bottom: 15px; }
-        .cart-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
-        .cart-total { font-weight: bold; text-align: right; margin-bottom: 15px; font-size: 16px; color: #333; }
-        .whatsapp-btn { background-color: #25D366; color: white; text-decoration: none; display: block; text-align: center; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 16px; b[...]
+        .cart-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
+        .cart-total { font-weight: bold; text-align: right; margin-bottom: 15px; font-size: 18px; color: #d63384; }
+        .whatsapp-btn { background-color: #25D366; color: white; text-decoration: none; display: block; text-align: center; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; border: none; cursor: pointer; transition: background-color 0.2s; }
+        .whatsapp-btn:hover { background-color: #1f9d4f; }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .product-card { max-width: 100%; }
+            .product-card img { height: 160px; }
+        }
     </style>
 </head>
 <body>
@@ -61,41 +73,41 @@
 
         <div class="extra-services-section">
             <h2>🎁 Добавить к букету</h2>
-            <div class="extra-main-note">Цены на дополнения согласовываются с флористом при заказе</div>
+            <div class="extra-main-note">Дополнительные услуги согласовываются с флористом при заказе</div>
             
             <label class="extra-option">
                 <input type="checkbox" id="extra-candy">
-                <span>🍬 Коробка вкусных конфет</span>
+                <span>🍬 Коробка вкусных конфет (150 г) — +200 руб.</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-strawberries">
-                <span>🍓 Клубника в шоколаде</span>
+                <span>🍓 Клубника в шоколаде (200 г) — +250 руб.</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-toy">
-                <span>🧸 Мягкая игрушка</span>
+                <span>🧸 Мягкая игрушка (20 см) — +180 руб.</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-card">
-                <span>💌 Открытка с пожеланием</span>
+                <span>💌 Открытка с пожеланием — +50 руб.</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option">
                 <input type="checkbox" id="extra-balloons">
-                <span>🎈 Гелевые шарики с надписью</span>
+                <span>🎈 Гелевые шарики с надписью (3 шт.) — +150 руб.</span>
             </label>
             <hr style="border: 0; border-top: 1px solid #fff0f2; margin: 4px 0;">
 
             <label class="extra-option" style="margin-top: 8px;">
                 <input type="checkbox" id="extra-combo">
-                <span>🧺 VIP-набор: Цветы + Конфеты + Подарок</span>
+                <span>🧺 VIP-набор: Букет + Конфеты + Шарики — +350 руб.</span>
             </label>
         </div>
 
@@ -155,24 +167,38 @@
             "jessie-daniella-QLuleNy8LMM-unsplash.jpeg"
         ];
 
-        // Генерируем каталог на 55 товаров
+        // Реалистичные описания букетов
+        const descriptions = [
+            "Нежный букет из свежих роз и гипсофилы. Идеален для выражения чувств и романтических моментов.",
+            "Яркая композиция из тюльпанов и альстромерий. Поднимает настроение и дарит позитивные эмоции.",
+            "Элегантный букет с белыми и розовыми пионами. Подходит для торжественных случаев и праздников.",
+            "Солнечный букет из подсолнухов и зелени. Символ тепла, оптимизма и благодарности.",
+            "Утончённая композиция с премиум-розами и эвкалиптом. Для особых людей и важных моментов.",
+            "Весенний букет из нежных гвоздик и гипсофилы. Универсален для любого праздника.",
+            "Экзотический букет из орхидей и зелени. С��ильный и неповторимый подарок.",
+            "Романтичный букет с красными розами и ягодами. Выражает глубину чувств и страсть.",
+            "Нежный букет с персиковыми розами и белыми цветами. Символизирует нежность и заботу.",
+            "Яркий букет из астр и герберы. Радостный и энергичный подарок для близких людей."
+        ];
+
+        // Генерируем каталог с оптимальными ценами
         const products = [];
         const baseUrl = "https://raw.githubusercontent.com/6nwbbbwhpz-lgtm/----/main/";
         
-        for (let i = 1; i <= 55; i++) {
-            let defaultPrice = 2500;
-            if (i % 3 === 0) defaultPrice = 3200;
-            else if (i % 5 === 0) defaultPrice = 4500;
-            else if (i % 7 === 0) defaultPrice = 1800;
-
+        const priceOptions = [650, 750, 850, 950, 1050, 1150, 1250, 1300, 700, 800, 900, 1000, 1100, 1200];
+        
+        for (let i = 1; i <= 40; i++) {
+            let defaultPrice = priceOptions[i % priceOptions.length];
             let fileName = uploadedPhotos[i % uploadedPhotos.length];
             let fullUrl = baseUrl + encodeURI(fileName);
+            let description = descriptions[i % descriptions.length];
 
             products.push({
                 id: i,
                 name: `Букет №${i}`,
                 price: defaultPrice,
-                url: fullUrl
+                url: fullUrl,
+                description: description
             });
         }
 
@@ -184,8 +210,9 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
-                <img src="${prod.url}" alt="${prod.name}" onerror="this.src='https://placehold.co/200x150/fff0f2/d63384?text=Фото+букета'">
+                <img src="${prod.url}" alt="${prod.name}" onerror="this.src='https://placehold.co/280x200/fff0f2/d63384?text=Букет'">
                 <div class="product-title">${prod.name}</div>
+                <div class="product-description">${prod.description}</div>
                 <div class="product-price">${prod.price} руб.</div>
                 <button class="add-to-cart-btn" onclick="addToCart(${prod.id})">В корзину</button>
             `;
@@ -250,15 +277,22 @@
 
             let hasExtras = false;
             let extrasText = '\n🎁 *Дополнительно к заказу:*\n';
+            let extrasTotal = 0;
             
-            if (candySelected) { extrasText += '• Коробка конфет 🍬\n'; hasExtras = true; }
-            if (strawberriesSelected) { extrasText += '• Клубника в шоколаде 🍓\n'; hasExtras = true; }
-            if (toySelected) { extrasText += '• Мягкая игрушка 🧸\n'; hasExtras = true; }
-            if (cardSelected) { extrasText += '• Открытка с пожеланием 💌\n'; hasExtras = true; }
-            if (balloonsSelected) { extrasText += '• Гелевые шарики с надписью 🎈\n'; hasExtras = true; }
-            if (comboSelected) { extrasText += '• VIP-набор (Цветы+Конфеты+Подарок) 🧺\n'; hasExtras = true; }
+            if (candySelected) { extrasText += '• Коробка конфет (150 г) 🍬 — +200 руб.\n'; hasExtras = true; extrasTotal += 200; }
+            if (strawberriesSelected) { extrasText += '• Клубника в шоколаде (200 г) 🍓 — +250 руб.\n'; hasExtras = true; extrasTotal += 250; }
+            if (toySelected) { extrasText += '• Мягкая игрушка (20 см) 🧸 — +180 руб.\n'; hasExtras = true; extrasTotal += 180; }
+            if (cardSelected) { extrasText += '• Открытка с пожеланием 💌 — +50 руб.\n'; hasExtras = true; extrasTotal += 50; }
+            if (balloonsSelected) { extrasText += '• Гелевые шарики с надписью (3 шт.) 🎈 — +150 руб.\n'; hasExtras = true; extrasTotal += 150; }
+            if (comboSelected) { extrasText += '• VIP-набор: Букет + Конфеты + Шарики 🧺 — +350 руб.\n'; hasExtras = true; extrasTotal += 350; }
 
-            if (hasExtras) message += extrasText;
+            if (hasExtras) {
+                message += extrasText;
+                total += extrasTotal;
+                message += `*Итого с дополнениями: ${total} руб.*\n`;
+            }
+
+            message += '\n💳 Ожидаю подтверждения и деталей доставки.';
 
             window.open(`https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
