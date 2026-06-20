@@ -1,0 +1,102 @@
+// WhatsApp
+const PHONE = "79280126881";
+
+// Корзина
+let cart = [];
+
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("active");
+}
+
+// Добавить товар
+function addToCart(name, price) {
+
+  cart.push({
+    name,
+    price
+  });
+
+  renderCart();
+}
+
+// Вывод корзины
+function renderCart() {
+
+  let cartItems = document.getElementById("cartItems");
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item => {
+
+    total += item.price;
+
+    cartItems.innerHTML += `
+    <div class="review">
+      <h3>${item.name}</h3>
+      <p>${item.price.toLocaleString()} ₽</p>
+    </div>
+    `;
+
+  });
+
+  document.getElementById("total").innerHTML =
+    "Итого: " + total.toLocaleString() + " ₽";
+}
+
+// WhatsApp заказ
+function orderWhatsApp() {
+
+  let text = "Здравствуйте!%0A%0A";
+
+  cart.forEach(item => {
+
+    text += item.name + " - " + item.price + " ₽%0A";
+
+  });
+
+  window.open(
+    "https://wa.me/" + PHONE + "?text=" + text
+  );
+
+}
+
+// Прокрутка к каталогу
+function scrollToCatalog() {
+
+  document.getElementById("catalog")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+// Переключение разделов
+function showSection(id) {
+
+  document.getElementById(id)
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+// Админка
+function loginAdmin() {
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  if (password === "flower2026") {
+
+    document.getElementById("adminContent").innerHTML =
+      "<h3>Добро пожаловать!</h3><p>Панель администратора активирована.</p>";
+
+  } else {
+
+    alert("Неверный пароль");
+
+  }
+
+}
