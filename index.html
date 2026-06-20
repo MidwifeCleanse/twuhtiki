@@ -1,0 +1,51 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Данные для секции "Букеты"
+bouquets = [
+    {"name": "Букет из пионов", "description": "Пышные пионы в стильной упаковке", "price": "5 890 ₽", "image": "bouquet_1.jpg"},
+    {"name": "Белые розы 31 шт", "description": "Элегантный букет из белых роз", "price": "4 990 ₽", "image": "bouquet_2.jpg"},
+    {"name": "Розовый микс", "description": "Смесь нежных розовых и пудровых роз", "price": "4 790 ₽", "image": "bouquet_3.jpg"},
+    {"name": "Букет из 51 розы", "description": "Классический букет из красных роз", "price": "6 890 ₽", "image": "bouquet_4.jpg"},
+    {"name": "Нежный букет", "description": "Воздушный бело-розовый букет для особого случая", "price": "3 590 ₽", "image": "bouquet_5.jpg"},
+    {"name": "Букет «Мечта»", "description": "Белый и розовый микс в розовых тонах", "price": "4 490 ₽", "image": "bouquet_6.jpg"},
+    {"name": "Сиреневый рай", "description": "Изящный букет из сиреневых и лавандовых ранункулюсов", "price": "4 190 ₽", "image": "bouquet_7.jpg"},
+    {"name": "Розовые пионы", "description": "Нежные розовые пионы в крафте", "price": "5 290 ₽", "image": "bouquet_8.jpg"},
+    {"name": "Небесный микс", "description": "Голубые гортензии и розы в стильной упаковке", "price": "5 890 ₽", "image": "bouquet_9.jpg"},
+    {"name": "Пионы и розы", "description": "Пионы и нежные голубые розы в эксклюзивной упаковке", "price": "6 290 ₽", "image": "bouquet_10.jpg"},
+    {"name": "Букет «Уют»", "description": "Нежная композиция из разноцветных роз", "price": "3 290 ₽", "image": "bouquet_11.jpg"},
+    {"name": "Вечерний блюз", "description": "Элегантный микс из холодных оттенков", "price": "4 890 ₽", "image": "bouquet_12.jpg"}
+]
+
+# Данные для секции "Клубника в шоколаде"
+chocolates = [
+    {"name": "Клубника в молочном шоколаде", "description": "Свежая клубника в бельгийском шоколаде", "price": "2 990 ₽", "image": "chocolate_1.jpg"},
+    {"name": "Клубника в белом шоколаде", "description": "Нежная клубника в белом шоколаде", "price": "2 990 ₽", "image": "chocolate_2.jpg"},
+    {"name": "Ассорти клубники", "description": "Микс из молочного, белого и темного шоколада", "price": "3 490 ₽", "image": "chocolate_3.jpg"},
+    {"name": "Клубника в шоколаде «Сердце»", "description": "Романтичный подарок в форме сердца", "price": "3 890 ₽", "image": "chocolate_4.jpg"},
+    {"name": "Пьяная клубника", "description": "Клубника с орехами в шоколаде", "price": "3 990 ₽", "image": "chocolate_5.jpg"},
+    {"name": "Клубника с топпингом", "description": "Клубника с кокосовой стружкой, орехами и шоколадом", "price": "3 290 ₽", "image": "chocolate_6.jpg"}
+]
+
+# Данные для секции "Игрушки"
+toys = [
+    {"name": "Плюшевый мишка", "description": "Классический мишка с атласным бантом для особых моментов", "price": "2 190 ₽", "image": "toy_1.jpg"},
+    {"name": "Мишка бежевый", "description": "Милый мишка для самых любимых", "price": "2 390 ₽", "image": "toy_2.jpg"},
+    {"name": "Белый мишка", "description": "Нежный мишка с атласным бантом", "price": "2 490 ₽", "image": "toy_3.jpg"},
+    {"name": "Мишка серый", "description": "Стильный серый мишка с любовным посланием", "price": "2 290 ₽", "image": "toy_4.jpg"},
+    {"name": "Мишка с сердцем", "description": "Мишка с сердцем, на котором написано \"I Love You\"", "price": "2 990 ₽", "image": "toy_5.jpg"},
+    {"name": "Плюшевый зайка", "description": "Нежный зайка для ваших любимых", "price": "1 990 ₽", "image": "toy_6.jpg"}
+]
+
+
+@app.route('/')
+def index():
+    """
+    Главная страница сайта. Отображает все секции: Букеты, Клубника в шоколаде, Игрушки.
+    """
+    return render_template('index.html', bouquets=bouquets, chocolates=chocolates, toys=toys)
+
+if __name__ == '__main__':
+    # Запуск веб-сервера Flask в режиме отладки
+    app.run(debug=True)
