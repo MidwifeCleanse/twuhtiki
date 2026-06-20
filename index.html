@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Flowers Boutique</title>
+
+<style>
+body{
+margin:0;
+font-family:system-ui, Arial;
+background:#faf7fb;
+}
+
+/* TOP NAV */
+header{
+background:#111;
+color:white;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+font-size:18px;
+letter-spacing:2px;
+}
+
+header button{
+background:#ff4d88;
+border:none;
+color:white;
+padding:10px 15px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+height:420px;
+background:url('https://images.unsplash.com/photo-1520763185298-1b434c919102') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:32px;
+font-weight:700;
+text-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* SECTION TITLE */
+.title{
+text-align:center;
+font-size:22px;
+margin:30px 0 10px;
+}
+
+/* GRID 2 ROW STYLE */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+padding:20px;
+}
+
+/* CARD */
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card .p{
+padding:12px;
+}
+
+.price{
+color:#ff4d88;
+font-weight:700;
+margin-top:5px;
+}
+
+button.add{
+background:#111;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+cursor:pointer;
+}
+button.add:hover{
+background:#ff4d88;
+}
+
+/* SECTIONS */
+section{
+margin-bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>FLOWER LUXE</h1>
+<button>🛒 Корзина</button>
+</header>
+
+<div class="hero">
+FLOWERS THAT SPEAK FOR YOU
+</div>
+
+<!-- 🌹 BOUQUETS -->
+<section>
+<h2 class="title">🌹 Букеты</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520763185298-1b434c919102">
+<div class="p">
+<h3>Розовый премиум букет</h3>
+<div class="price">4 900 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+<div class="p">
+<h3>Пионы люкс</h3>
+<div class="price">5 500 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321">
+<div class="p">
+<h3>Авторский микс</h3>
+<div class="price">6 200 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+</div>
+</section>
+
+<!-- 🍓 STRAWBERRIES -->
+<section>
+<h2 class="title">🍓 Клубника в шоколаде</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519869325930-281384150729">
+<div class="p">
+<h3>Премиум набор</h3>
+<div class="price">2 900 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+</div>
+</section>
+
+<!-- 🧸 TOYS -->
+<section>
+<h2 class="title">🧸 Игрушки</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee">
+<div class="p">
+<h3>Плюшевый мишка</h3>
+<div class="price">2 500 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+</div>
+</section>
+
+<!-- 🎈 BALLOONS -->
+<section>
+<h2 class="title">🎈 Шары</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520975922284-7c2f1c1a8d63">
+<div class="p">
+<h3>Гелевые шары с надписью</h3>
+<div class="price">1 900 ₽</div>
+</div>
+<button class="add">В корзину</button>
+</div>
+
+</div>
+</section>
+
+</body>
+</html>
